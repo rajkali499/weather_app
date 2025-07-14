@@ -110,15 +110,21 @@ class DailyUnits {
   final String time;
   final String weatherCode;
   final String temperature2mMax;
+  final String temperature2mMin;
   final String precipitationSum;
   final String windSpeed10mMax;
+  final String relativeHumidity2mMax;
+  final String relativeHumidity2mMin;
 
   DailyUnits({
     required this.time,
     required this.weatherCode,
     required this.temperature2mMax,
+    required this.temperature2mMin,
     required this.precipitationSum,
     required this.windSpeed10mMax,
+    required this.relativeHumidity2mMax,
+    required this.relativeHumidity2mMin,
   });
 
   factory DailyUnits.fromJson(Map<String, dynamic> json) {
@@ -126,8 +132,11 @@ class DailyUnits {
       time: json['time'],
       weatherCode: json['weather_code'],
       temperature2mMax: json['temperature_2m_max'],
+      temperature2mMin: json['temperature_2m_min'],
       precipitationSum: json['precipitation_sum'],
       windSpeed10mMax: json['wind_speed_10m_max'],
+      relativeHumidity2mMax: json['relative_humidity_2m_max'],
+      relativeHumidity2mMin: json['relative_humidity_2m_min'],
     );
   }
 }
@@ -136,15 +145,21 @@ class DailyWeather {
   final List<int> time;
   final List<int> weatherCode;
   final List<double> temperature2mMax;
+  final List<double> temperature2mMin;
   final List<double> precipitationSum;
   final List<double> windSpeed10mMax;
+  final List<int> relativeHumidity2mMax;
+  final List<int> relativeHumidity2mMin;
 
   DailyWeather({
     required this.time,
     required this.weatherCode,
     required this.temperature2mMax,
+    required this.temperature2mMin,
     required this.precipitationSum,
     required this.windSpeed10mMax,
+    required this.relativeHumidity2mMax,
+    required this.relativeHumidity2mMin,
   });
 
   factory DailyWeather.fromJson(Map<String, dynamic> json) {
@@ -154,13 +169,17 @@ class DailyWeather {
       temperature2mMax: (json['temperature_2m_max'] as List)
           .map((e) => (e as num).toDouble())
           .toList(),
+      temperature2mMin: (json['temperature_2m_min'] as List)
+          .map((e) => (e as num).toDouble())
+          .toList(),
       precipitationSum: (json['precipitation_sum'] as List)
           .map((e) => (e as num).toDouble())
           .toList(),
       windSpeed10mMax: (json['wind_speed_10m_max'] as List)
           .map((e) => (e as num).toDouble())
           .toList(),
+      relativeHumidity2mMax: List<int>.from(json['relative_humidity_2m_max']),
+      relativeHumidity2mMin: List<int>.from(json['relative_humidity_2m_min']),
     );
   }
 }
-

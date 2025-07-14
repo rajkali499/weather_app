@@ -64,4 +64,28 @@ class LocationModel {
       countryId: json['country_id'],
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'latitude': latitude,
+      'longitude': longitude,
+      'elevation': elevation,
+      'timezone': timezone,
+      'country': country,
+      'admin1': admin1,
+      'admin2': admin2,
+      'admin3': admin3,
+      'admin4': admin4,
+      'population': population,
+      'feature_code': featureCode,
+      'country_code': countryCode,
+      'admin1_id': admin1Id,
+      'admin2_id': admin2Id,
+      'admin3_id': admin3Id,
+      'admin4_id': admin4Id,
+      'country_id': countryId,
+    };
+  }
 }

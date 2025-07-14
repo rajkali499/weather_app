@@ -38,7 +38,7 @@ class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
         'longitude': longitude.toString(),
         'hourly': 'temperature_2m',
         'daily':
-            'weather_code,temperature_2m_max,precipitation_sum,wind_speed_10m_max',
+            'weather_code,temperature_2m_max,precipitation_sum,wind_speed_10m_max,relative_humidity_2m_max,relative_humidity_2m_min,temperature_2m_min',
         'current':
             'temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m,precipitation',
         'format': 'json',

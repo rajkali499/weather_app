@@ -3,15 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
-import 'package:weather_app/data/model/location_model.dart';
 import 'package:weather_app/data/model/weather_forecast_response.dart';
 import 'package:weather_app/data/offline_storage/location_preference.dart';
-import 'package:weather_app/domain/bloc/get_locations_event.dart';
 import 'package:weather_app/domain/bloc/get_weather_event.dart';
 import 'package:weather_app/domain/bloc/set_selected_day_event.dart';
 import 'package:weather_app/domain/bloc/weather_bloc.dart';
 import 'package:weather_app/domain/bloc/weather_state.dart';
-import 'package:weather_app/helper/asset_helper.dart';
 import 'package:weather_app/helper/colors.dart';
 import 'package:weather_app/helper/dialog_helper.dart';
 import 'package:weather_app/helper/text_helper.dart';
@@ -100,12 +97,10 @@ class _WeatherWidgetState extends State<WeatherWidget> {
   }
 
   Widget _buildLeftCard(BuildContext context, WeatherState state) {
-    print("object");
     return Stack(
       alignment: Alignment.centerRight,
       children: [
         Container(
-          // height: MediaQuery.sizeOf(context).height * 0.5,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             gradient: LinearGradient(
@@ -113,14 +108,6 @@ class _WeatherWidgetState extends State<WeatherWidget> {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
-            // image: DecorationImage(
-            //   image: AssetImage('assets/beach.jpg'), // Use your image
-            //   fit: BoxFit.cover,
-            //   colorFilter: ColorFilter.mode(
-            //     Colors.black.withOpacity(0.3),
-            //     BlendMode.darken,
-            //   ),
-            // ),
           ),
           padding: const EdgeInsets.all(24),
           child: Column(
@@ -153,8 +140,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
                   Icon(Icons.location_on, color: Colors.white70, size: 16),
                   SizedBox(width: 4),
                   Text(
-                    '${selectedLocation?.name}, ${selectedLocation?.country}' ??
-                        "Biarritz, FR",
+                    '${selectedLocation?.name}, ${selectedLocation?.country}',
                     style: TextStyle(color: Colors.white70),
                   ),
                 ],
@@ -185,12 +171,9 @@ class _WeatherWidgetState extends State<WeatherWidget> {
           ),
         ),
         
-        Padding(
-          padding: const EdgeInsets.only(top: 20.0,),
-          child: Lottie.asset(
-            wmoWeatherMap[state.weather?.daily.weatherCode[state.selectedDay] ?? 0]?.icon ?? "",
-            fit: BoxFit.contain,
-          ),
+        Lottie.asset(
+          wmoWeatherMap[state.weather?.daily.weatherCode[state.selectedDay] ?? 0]?.icon ?? "",
+          fit: BoxFit.contain,
         ),
       ],
     );
@@ -297,8 +280,8 @@ class _WeatherWidgetState extends State<WeatherWidget> {
                 );
               },
               icon: const Icon(Icons.location_pin, color: Colors.white),
-              label: const Text(
-                "Change Location",
+              label: Text(
+                TextHelper.changeLocation,
                 style: TextStyle(color: Colors.white),
               ),
             ),

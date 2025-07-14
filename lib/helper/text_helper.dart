@@ -19,5 +19,6 @@ class TextHelper {
   static const String  precipitation = "PRECIPITATION";
   static const String locationNotFound = "Location not found";
   static const String welcomeText = "Welcome to WeatherApp 🌤️";
-  static const String locationPromptText = "Please enter a location to get started";
+  static const String locationPromptText = "Please select a location to get started";
+  static const String changeLocation = "Change Location";
 }

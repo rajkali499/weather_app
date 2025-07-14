@@ -26,7 +26,7 @@ void showSnackBar(
       : '';
 
   Fluttertoast.showToast(
-    msg: "$icon $message",
+    msg: "$icon  $message",
     toastLength: Toast.LENGTH_LONG,
     gravity: ToastGravity.BOTTOM,
     timeInSecForIosWeb: 1,

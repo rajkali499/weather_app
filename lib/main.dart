@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/data/model/location_model.dart';
 import 'package:weather_app/data/offline_storage/location_preference.dart';
 import 'package:weather_app/data/remote_data_source/weather_remote_datasource.dart';
-import 'package:weather_app/domain/bloc/get_locations_event.dart';
 import 'package:weather_app/domain/bloc/get_weather_event.dart';
 import 'package:weather_app/domain/bloc/weather_bloc.dart' show WeatherBloc;
 import 'package:weather_app/domain/use_cases/get_locations_usecase.dart';
@@ -103,7 +102,6 @@ class MyHomePage extends StatefulWidget {
       children: [
         const WeatherWidget(), // main weather screen
 
-        // Glassmorphic location prompt overlay
         if (_showLocationPrompt)
           Positioned.fill(
             child: ClipRRect(
